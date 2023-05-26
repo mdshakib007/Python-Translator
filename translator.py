@@ -1,21 +1,20 @@
-import tkinter as tk
 import ttkbootstrap as ttkb
 import googletrans
 from googletrans import Translator
 
 root = ttkb.Window()
 root.title('Easy Python Translator')
-root.geometry('1080x400')
+root.geometry('1080x500')
 root.resizable(False, False)
 
 
 # Functions
-def label_change():
+def change_show():
     c1 = combo1.get()
     c2 = combo2.get()
     label1['text'] = c1
     label2['text'] = c2
-    root.after(1000, label_change)
+    root.after(1000, change_show)
 
 
 def translate_now():
@@ -27,9 +26,10 @@ def translate_now():
 
         text2.delete(1.0, 'end')
         text2.insert('end', translate_text)
+        
     except Exception as e:
         text2.delete(1.0, 'end')
-        text2.insert('end', 'Error: An error occurred.\nPlease check your internet connection and try again.')
+        text2.insert('end', 'Error: An error occurred.\n\nPlease check your internet connection and try again.')
 
 
 # Languages
@@ -41,18 +41,18 @@ combo1 = ttkb.Combobox(root, values=lang_val, font='Roboto 14', state='r')
 combo1.place(x=110, y=20)
 combo1.set('auto')
 
-label1 = ttkb.Label(root, text='ENGLISH', font='segoe 30 bold', background='white', width=14, border=5, relief='groove')
+label1 = ttkb.Label(root, font='Roboto 30 bold', background='white', width=14, border=5, relief='groove')
 label1.place(x=50, y=70)
 
 # Middle text
-ttkb.Label(root, text='TO', font='segoe 30 bold').place(x=470, y=70)
+ttkb.Label(root, text='TO', font='Roboto 30 bold').place(x=470, y=70)
 
 # Second combobox
 combo2 = ttkb.Combobox(root, values=lang_val, font='Roboto 14', state='r')
 combo2.place(x=610, y=20)
 combo2.set('bangla')
 
-label2 = ttkb.Label(root, text='ENGLISH', font='segoe 30 bold', background='white', width=14, border=5, relief='groove')
+label2 = ttkb.Label(root, font='Roboto 30 bold', background='white', width=14, border=5, relief='groove')
 label2.place(x=550, y=70)
 
 # First frame for input and output
@@ -71,8 +71,8 @@ text2.place(x=0, y=0, width=400, height=200)
 
 # Translate button
 btn = ttkb.Button(root, text='Translate', cursor='hand2', bootstyle='primary', command=translate_now)
-btn.place(x=457, y=350)
+btn.place(x=457, y=400)
 
-label_change()
+change_show()
 
 root.mainloop()
