@@ -93,12 +93,12 @@ theme_menu.add_command(label='Morph', accelerator='Simple', command=lambda: chan
 theme_menu.add_command(
     label='Journal', command=lambda: change_theme('journal'))
 theme_menu.add_separator()
-theme_menu.add_command(label='Darkly', accelerator='Dark',
+theme_menu.add_command(label='Darkly',
                        command=lambda: change_theme('darkly'))
 theme_menu.add_command(
     label='Superhero', command=lambda: change_theme('superhero'))
 theme_menu.add_command(label='Solar', command=lambda: change_theme('solar'))
-theme_menu.add_command(label='Cyborg', command=lambda: change_theme('cyborg'))
+theme_menu.add_command(label='Cyborg', accelerator='Dark', command=lambda: change_theme('cyborg'))
 theme_menu.add_command(label='Vapor', command=lambda: change_theme('vapor'))
 theme_menu.add_command(
     label='Simplex', command=lambda: change_theme('simplex'))
@@ -108,7 +108,7 @@ theme_menu.add_command(
 m1.add_cascade(label='Themes', menu=theme_menu)
 
 m1.add_command(label='Help', command=help_menu)
-m1.add_command(label='Source Code', command=source_code)
+m1.add_command(label='Get Source Code', command=source_code)
 m1.add_command(label='About', command=about)
 m1.add_command(label='Exit', accelerator='Ctrl+Q', command=quit)
 
